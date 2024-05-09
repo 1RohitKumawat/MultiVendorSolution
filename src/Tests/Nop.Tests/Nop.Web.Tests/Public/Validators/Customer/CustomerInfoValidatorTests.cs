@@ -76,11 +76,47 @@ public class CustomerInfoValidatorTests : BaseNopTest
 
         var model = new CustomerInfoModel
         {
-            FirstName = null
+            LegalFirstName = null
         };
-        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.FirstName);
-        model.FirstName = string.Empty;
-        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.FirstName);
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LegalFirstName);
+        model.LegalFirstName = string.Empty;
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LegalFirstName);
+    }
+
+    [Test]
+    public void ShouldNotHaveErrorWhenNickNameIsSpecified()
+    {
+        var validator = new CustomerInfoValidator(_localizationService, _stateProvinceService,
+            new CustomerSettings
+            {
+                NickNameEnabled = true,
+                NickNameRequired = true
+            });
+
+        var model = new CustomerInfoModel
+        {
+            NickName = "Test"
+        };
+        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.NickName);
+    }
+
+    [Test]
+    public void ShouldHaveErrorWhenNickNameIsNullOrEmpty()
+    {
+        var validator = new CustomerInfoValidator(_localizationService, _stateProvinceService,
+            new CustomerSettings
+            {
+                NickNameEnabled = true,
+                NickNameRequired = true
+            });
+
+        var model = new CustomerInfoModel
+        {
+            NickName = null
+        };
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.NickName);
+        model.NickName = string.Empty;
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.NickName);
     }
 
     [Test]
@@ -95,9 +131,9 @@ public class CustomerInfoValidatorTests : BaseNopTest
 
         var model = new CustomerInfoModel
         {
-            FirstName = "John"
+            LegalFirstName = "John"
         };
-        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.FirstName);
+        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.LegalFirstName);
     }
 
     [Test]
@@ -112,10 +148,10 @@ public class CustomerInfoValidatorTests : BaseNopTest
                 LastNameEnabled = true,
                 LastNameRequired = true
             });
-        model.LastName = null;
-        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LastName);
-        model.LastName = string.Empty;
-        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LastName);
+        model.LegalLastName = null;
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LegalLastName);
+        model.LegalLastName = string.Empty;
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LegalLastName);
 
         //not required
         validator = new CustomerInfoValidator(_localizationService, _stateProvinceService,
@@ -124,10 +160,10 @@ public class CustomerInfoValidatorTests : BaseNopTest
                 LastNameEnabled = true,
                 LastNameRequired = false
             });
-        model.LastName = null;
-        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.LastName);
-        model.LastName = string.Empty;
-        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.LastName);
+        model.LegalLastName = null;
+        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.LegalLastName);
+        model.LegalLastName = string.Empty;
+        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.LegalLastName);
     }
 
     [Test]
@@ -141,9 +177,9 @@ public class CustomerInfoValidatorTests : BaseNopTest
 
         var model = new CustomerInfoModel
         {
-            LastName = "Smith"
+            LegalLastName = "Smith"
         };
-        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.LastName);
+        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.LegalLastName);
     }
 
     [Test]

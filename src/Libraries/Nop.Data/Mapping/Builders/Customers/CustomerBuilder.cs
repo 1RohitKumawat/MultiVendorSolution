@@ -25,6 +25,7 @@ public partial class CustomerBuilder : NopEntityBuilder<Customer>
             .WithColumn(nameof(Customer.Username)).AsString(1000).Nullable()
             .WithColumn(nameof(Customer.Email)).AsString(1000).Nullable()
             .WithColumn(nameof(Customer.EmailToRevalidate)).AsString(1000).Nullable()
+            .WithColumn(nameof(Customer.NickName)).AsString(1000).Nullable()
             .WithColumn(nameof(Customer.FirstName)).AsString(1000).Nullable()
             .WithColumn(nameof(Customer.LastName)).AsString(1000).Nullable()
             .WithColumn(nameof(Customer.Gender)).AsString(1000).Nullable()

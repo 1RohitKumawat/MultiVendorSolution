@@ -146,6 +146,12 @@ public partial record CustomerSettingsModel : BaseNopModel, ISettingsModel
     [NopResourceDisplayName("Admin.Configuration.Settings.CustomerUser.FirstNameRequired")]
     public bool FirstNameRequired { get; set; }
 
+    [NopResourceDisplayName("Admin.Configuration.Settings.CustomerUser.NickNameEnabled")]
+    public bool NickNameEnabled { get; set; }
+
+    [NopResourceDisplayName("Admin.Configuration.Settings.CustomerUser.NickNameRequired")]
+    public bool NickNameRequired { get; set; }
+
     [NopResourceDisplayName("Admin.Configuration.Settings.CustomerUser.LastNameEnabled")]
     public bool LastNameEnabled { get; set; }
 

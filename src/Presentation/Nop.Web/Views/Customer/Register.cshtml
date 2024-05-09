@@ -45,8 +45,8 @@
                             </div>
                         </div>
                     }
-                    @* @if (Model.FirstNameEnabled)
-                    { *@
+                    @if (Model.NickNameEnabled)
+                    {
                         <div class="inputs">
                             <label asp-for="NickName" asp-postfix=":"></label>
                             <input asp-for="NickName" />
@@ -56,27 +56,10 @@
                             }
                             <span asp-validation-for="NickName"></span>
                         </div>
-
-                        @* <div class="inputs">
-                        <label asp-for="LegalFirstName" asp-postfix=":"></label>
-                        <input asp-for="LegalFirstName" />
-                            @if (Model.NickNameRequired)
-                            {
-                                <nop-required />
-                            }
-                        <span asp-validation-for="LegalFirstName"></span>
-                        </div>
-
                         <div class="inputs">
-                        <label asp-for="LegalLastName" asp-postfix=":"></label>
-                        <input asp-for="LegalLastName" />
-                            @if (Model.NickNameRequired)
-                            {
-                                <nop-required />
-                            }
-                        <span asp-validation-for="LegalLastName"></span>
-                        </div> *@
-                   @*  } *@
+                            <label asp-for="NickNameText"></label>
+                        </div>
+                    }
 
                     @if (Model.FirstNameEnabled)
                     {
@@ -93,13 +76,13 @@
                     @if (Model.LastNameEnabled)
                     {
                         <div class="inputs">
-                            <label asp-for="LastName" asp-postfix=":"></label>
-                            <input asp-for="LastName" />
+                            <label asp-for="LegalLastName" asp-postfix=":"></label>
+                            <input asp-for="LegalLastName" />
                             @if (Model.LastNameRequired)
                             {
                                 <nop-required />
                             }
-                            <span asp-validation-for="LastName"></span>
+                            <span asp-validation-for="LegalLastName"></span>
                         </div>
                     }
                     @if (Model.DateOfBirthEnabled)
@@ -151,9 +134,34 @@
                         </div>
 
                     }
+                    @* <div class="title">
+                        <strong>@T("Account.YourPassword")</strong>
+                    </div>
+                     <div class="form-fields">*@
+                        <div class="inputs">
+                            <label asp-for="Password" asp-postfix=":"></label>
+                            <input asp-for="Password" />
+                            <nop-required />
+                            <span asp-validation-for="Password"></span>
+                        </div>
+                        <div class="inputs">
+                            <label asp-for="ConfirmPassword" asp-postfix=":"></label>
+                            <input asp-for="ConfirmPassword" />
+                            <nop-required />
+                            <span asp-validation-for="ConfirmPassword"></span>
+                        </div>
+                        @if (Model.DisplayCaptcha)
+                        {
+                            <nop-captcha />
+                        }
+                        @if (Model.HoneypotEnabled)
+                        {
+                            @Html.Raw(Html.GenerateHoneypotInput())
+                        }
+                    @* </div> *@
                 </div>
             </div>
-            @if (Model.CompanyEnabled || Model.DisplayVatNumber)
+@*             @if (Model.CompanyEnabled || Model.DisplayVatNumber)
             {
                 <div class="fieldset">
                     <div class="title">
@@ -357,8 +365,8 @@
                         </div>
                     </div>
                 </div>
-            }
-            <div class="fieldset">
+            } *@
+            @* <div class="fieldset">
                 <div class="title">
                     <strong>@T("Account.YourPassword")</strong>
                 </div>
@@ -384,7 +392,7 @@
                         @Html.Raw(Html.GenerateHoneypotInput())
                     }
                 </div>
-            </div>
+            </div> *@
 
             @if (Model.AcceptPrivacyPolicyEnabled || Model.GdprConsents.Count > 0)
             {

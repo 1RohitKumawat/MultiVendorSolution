@@ -33,7 +33,7 @@ public class DataMigration : Migration
         var customCustomerAttributeName = "CustomCustomerAttributes";
 
         //#4601 customer attribute values to customer table column values
-        var attributeKeys = new[] { nameof(Customer.FirstName), nameof(Customer.LastName), nameof(Customer.Gender),
+        var attributeKeys = new[] { nameof(Customer.NickName),nameof(Customer.FirstName), nameof(Customer.LastName), nameof(Customer.Gender),
             nameof(Customer.Company), nameof(Customer.StreetAddress), nameof(Customer.StreetAddress2), nameof(Customer.ZipPostalCode),
             nameof(Customer.City), nameof(Customer.County), nameof(Customer.Phone), nameof(Customer.Fax), nameof(Customer.VatNumber),
             nameof(Customer.TimeZoneId), nameof(Customer.CountryId),
@@ -100,6 +100,7 @@ public class DataMigration : Migration
                     continue;
 
                 customer.FirstName = getAttributeValue(customerAttributes, nameof(Customer.FirstName), castToString);
+                customer.NickName = getAttributeValue(customerAttributes, nameof(Customer.NickName), castToString);
                 customer.LastName = getAttributeValue(customerAttributes, nameof(Customer.LastName), castToString);
                 customer.Gender = getAttributeValue(customerAttributes, nameof(Customer.Gender), castToString);
                 customer.Company = getAttributeValue(customerAttributes, nameof(Customer.Company), castToString);

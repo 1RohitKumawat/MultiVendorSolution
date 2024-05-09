@@ -20,7 +20,8 @@ public class SchemaMigration : ForwardOnlyMigration
         // add column
         var customerTableName = nameof(Customer);
 
-        var firstNameCustomerColumnName = nameof(Customer.FirstName);
+        var firstNameCustomerColumnName = nameof(Customer.NickName);
+        var nickNameCustomerColumnName = nameof(Customer.FirstName);
         var lastNameCustomerColumnName = nameof(Customer.LastName);
         var genderCustomerColumnName = nameof(Customer.Gender);
         var dobCustomerColumnName = nameof(Customer.DateOfBirth);

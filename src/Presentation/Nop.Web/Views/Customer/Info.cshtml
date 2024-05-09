@@ -52,28 +52,40 @@
                             </div>
                         </div>
                     }
+                    @if (Model.NickNameEnabled)
+                    {
+                        <div class="inputs">
+                            <label asp-for="NickName" asp-postfix=":"></label>
+                            <input asp-for="NickName" />
+                            @if (Model.NickNameRequired)
+                            {
+                                <nop-required />
+                            }
+                            <span asp-validation-for="NickName"></span>
+                        </div>
+                    }
                     @if (Model.FirstNameEnabled)
                     {
                         <div class="inputs">
-                            <label asp-for="FirstName" asp-postfix=":"></label>
-                            <input asp-for="FirstName" />
+                            <label asp-for="LegalFirstName" asp-postfix=":"></label>
+                            <input asp-for="LegalFirstName" />
                             @if (Model.FirstNameRequired)
                             {
                                 <nop-required />
                             }
-                            <span asp-validation-for="FirstName"></span>
+                            <span asp-validation-for="LegalFirstName"></span>
                         </div>
                     }
                     @if (Model.LastNameEnabled)
                     {
                         <div class="inputs">
-                            <label asp-for="LastName" asp-postfix=":"></label>
-                            <input asp-for="LastName" />
+                            <label asp-for="LegalLastName" asp-postfix=":"></label>
+                            <input asp-for="LegalLastName" />
                             @if (Model.LastNameRequired)
                             {
                                 <nop-required />
                             }
-                            <span asp-validation-for="LastName"></span>
+                            <span asp-validation-for="LegalLastName"></span>
                         </div>
                     }
                     @if (Model.DateOfBirthEnabled)

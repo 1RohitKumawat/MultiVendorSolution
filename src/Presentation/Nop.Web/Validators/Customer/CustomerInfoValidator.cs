@@ -19,13 +19,17 @@ public partial class CustomerInfoValidator : BaseNopValidator<CustomerInfoModel>
             .IsEmailAddress()
             .WithMessageAwait(localizationService.GetResourceAsync("Common.WrongEmail"));
 
+        if (customerSettings.NickNameEnabled && customerSettings.NickNameRequired)
+        {
+            RuleFor(x => x.NickName).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.Fields.NickName.Required"));
+        }
         if (customerSettings.FirstNameEnabled && customerSettings.FirstNameRequired)
         {
-            RuleFor(x => x.FirstName).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.Fields.FirstName.Required"));
+            RuleFor(x => x.LegalFirstName).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.Fields.FirstName.Required"));
         }
         if (customerSettings.LastNameEnabled && customerSettings.LastNameRequired)
         {
-            RuleFor(x => x.LastName).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.Fields.LastName.Required"));
+            RuleFor(x => x.LegalLastName).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.Fields.LastName.Required"));
         }
 
         if (customerSettings.UsernamesEnabled && customerSettings.AllowUsersToChangeUsernames)

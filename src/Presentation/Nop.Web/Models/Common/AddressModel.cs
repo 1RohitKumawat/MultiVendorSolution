@@ -16,8 +16,12 @@ public partial record AddressModel : BaseNopEntityModel
         AddressFields = new KeyValuePair<AddressField, string>[7];
     }
 
+    [NopResourceDisplayName("Address.Fields.NickName")]
+    public string NickName { get; set; }
+
     [NopResourceDisplayName("Address.Fields.FirstName")]
     public string FirstName { get; set; }
+
     [NopResourceDisplayName("Address.Fields.LastName")]
     public string LastName { get; set; }
     [DataType(DataType.EmailAddress)]

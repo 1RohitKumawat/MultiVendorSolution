@@ -43,6 +43,10 @@ public class FacebookAuthenticationEventConsumer : IConsumer<CustomerAutoRegiste
 
         var customer = eventMessage.Customer;
         //store some of the customer fields
+        var nickName = eventMessage.AuthenticationParameters.Claims?.FirstOrDefault(claim => claim.Type == ClaimTypes.GivenName)?.Value;
+        if (!string.IsNullOrEmpty(nickName))
+            customer.NickName = nickName;
+
         var firstName = eventMessage.AuthenticationParameters.Claims?.FirstOrDefault(claim => claim.Type == ClaimTypes.GivenName)?.Value;
         if (!string.IsNullOrEmpty(firstName))
             customer.FirstName = firstName;

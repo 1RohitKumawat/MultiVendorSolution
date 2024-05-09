@@ -72,6 +72,9 @@ public partial record CustomerModel : BaseNopEntityModel, IAclSupportedModel
     [NopResourceDisplayName("Admin.Customers.Customers.Fields.FirstName")]
     public string FirstName { get; set; }
 
+    public bool NickNameEnabled { get; set; }
+    [NopResourceDisplayName("Admin.Customers.Customers.Fields.NickName")]
+    public string NickName { get; set; }
     public bool LastNameEnabled { get; set; }
     [NopResourceDisplayName("Admin.Customers.Customers.Fields.LastName")]
     public string LastName { get; set; }

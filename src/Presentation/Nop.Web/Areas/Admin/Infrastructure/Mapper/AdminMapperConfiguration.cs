@@ -837,6 +837,7 @@ public partial class AdminMapperConfiguration : Profile, IOrderedMapperProfile
             .ForMember(model => model.GenderEnabled, options => options.Ignore())
             .ForMember(model => model.NeutralGenderEnabled, options => options.Ignore())
             .ForMember(model => model.Gender, options => options.Ignore())
+            .ForMember(model => model.NickNameEnabled, options => options.Ignore())
             .ForMember(model => model.FirstNameEnabled, options => options.Ignore())
             .ForMember(model => model.FirstName, options => options.Ignore())
             .ForMember(model => model.LastNameEnabled, options => options.Ignore())

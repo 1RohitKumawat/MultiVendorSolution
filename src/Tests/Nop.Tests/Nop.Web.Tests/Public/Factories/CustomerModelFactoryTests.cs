@@ -87,15 +87,15 @@ public class CustomerModelFactoryTests : WebTest
 
         model.Email.Should().Be(NopTestsDefaults.AdminEmail);
         model.Username.Should().Be(NopTestsDefaults.AdminEmail);
-        model.FirstName.Should().Be("John");
-        model.LastName.Should().Be("Smith");
+        model.LegalFirstName.Should().Be("John");
+        model.LegalLastName.Should().Be("Smith");
 
         model = await _customerModelFactory.PrepareCustomerInfoModelAsync(new CustomerInfoModel(), _customer, true);
 
         model.Email.Should().BeNullOrEmpty();
         model.Username.Should().BeNullOrEmpty();
-        model.FirstName.Should().BeNullOrEmpty();
-        model.LastName.Should().BeNullOrEmpty();
+        model.LegalFirstName.Should().BeNullOrEmpty();
+        model.LegalLastName.Should().BeNullOrEmpty();
     }
 
     [Test]

@@ -50,18 +50,22 @@ public partial record RegisterModel : BaseNopModel
 
     public bool NeutralGenderEnabled { get; set; }
 
-    public bool NickNameEnabled { get; set; }
     public bool FirstNameEnabled { get; set; }
     [NopResourceDisplayName("Account.Fields.LegalFirstName")]
     public string LegalFirstName { get; set; }
+    public bool FirstNameRequired { get; set; }
 
+    public bool NickNameEnabled { get; set; }
     [NopResourceDisplayName("Account.Fields.NickName")]
     public string NickName { get; set; }
+    
+    [NopResourceDisplayName("Account.Fields.NickNameText")]
+    public string NickNameText { get; set; }
     public bool NickNameRequired { get; set; }
-    public bool FirstNameRequired { get; set; }
+    
     public bool LastNameEnabled { get; set; }
-    [NopResourceDisplayName("Account.Fields.LastName")]
-    public string LastName { get; set; }
+    [NopResourceDisplayName("Account.Fields.LegalLastName")]
+    public string LegalLastName { get; set; }
     public bool LastNameRequired { get; set; }
 
     public bool DateOfBirthEnabled { get; set; }

@@ -370,6 +370,8 @@ public partial class CustomerController : BaseAdminController
                 customer.TimeZoneId = model.TimeZoneId;
             if (_customerSettings.GenderEnabled)
                 customer.Gender = model.Gender;
+            if (_customerSettings.NickNameEnabled)
+                customer.NickName = model.NickName;
             if (_customerSettings.FirstNameEnabled)
                 customer.FirstName = model.FirstName;
             if (_customerSettings.LastNameEnabled)
@@ -614,6 +616,8 @@ public partial class CustomerController : BaseAdminController
                     customer.TimeZoneId = model.TimeZoneId;
                 if (_customerSettings.GenderEnabled)
                     customer.Gender = model.Gender;
+                if (_customerSettings.NickNameEnabled)
+                    customer.NickName = model.NickName;
                 if (_customerSettings.FirstNameEnabled)
                     customer.FirstName = model.FirstName;
                 if (_customerSettings.LastNameEnabled)

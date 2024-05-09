@@ -1300,6 +1300,7 @@ public partial class MessageTokenProvider : IMessageTokenProvider
         tokens.Add(new Token("Customer.Email", customer.Email));
         tokens.Add(new Token("Customer.Username", customer.Username));
         tokens.Add(new Token("Customer.FullName", await _customerService.GetCustomerFullNameAsync(customer)));
+        tokens.Add(new Token("Customer.NickName", customer.NickName));
         tokens.Add(new Token("Customer.FirstName", customer.FirstName));
         tokens.Add(new Token("Customer.LastName", customer.LastName));
         tokens.Add(new Token("Customer.VatNumber", customer.VatNumber));

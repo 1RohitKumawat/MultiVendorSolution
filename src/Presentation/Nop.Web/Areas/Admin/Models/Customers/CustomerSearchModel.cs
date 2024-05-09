@@ -36,6 +36,10 @@ public partial record CustomerSearchModel : BaseSearchModel, IAclSupportedModel
 
     public bool UsernamesEnabled { get; set; }
 
+    [NopResourceDisplayName("Admin.Customers.Customers.List.SearchNickName")]
+    public string SearchNickName { get; set; }
+    public bool NickNameEnabled { get; set; }
+
     [NopResourceDisplayName("Admin.Customers.Customers.List.SearchFirstName")]
     public string SearchFirstName { get; set; }
     public bool FirstNameEnabled { get; set; }

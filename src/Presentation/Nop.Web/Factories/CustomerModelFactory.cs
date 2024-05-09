@@ -211,8 +211,10 @@ public partial class CustomerModelFactory : ICustomerModelFactory
         if (!excludeProperties)
         {
             model.VatNumber = customer.VatNumber;
-            model.FirstName = customer.FirstName;
-            model.LastName = customer.LastName;
+            model.NickName = customer.NickName;
+            model.LegalFirstName = customer.FirstName;
+            model.NickName = customer.NickName;
+            model.LegalLastName = customer.LastName;
             model.Gender = customer.Gender;
             var dateOfBirth = customer.DateOfBirth;
             if (dateOfBirth.HasValue)
@@ -299,8 +301,10 @@ public partial class CustomerModelFactory : ICustomerModelFactory
 
         model.DisplayVatNumber = _taxSettings.EuVatEnabled;
         model.VatNumberStatusNote = await _localizationService.GetLocalizedEnumAsync(customer.VatNumberStatus);
+        model.NickNameEnabled = _customerSettings.NickNameEnabled;
         model.FirstNameEnabled = _customerSettings.FirstNameEnabled;
         model.LastNameEnabled = _customerSettings.LastNameEnabled;
+        model.NickNameRequired = _customerSettings.NickNameRequired;
         model.FirstNameRequired = _customerSettings.FirstNameRequired;
         model.LastNameRequired = _customerSettings.LastNameRequired;
         model.GenderEnabled = _customerSettings.GenderEnabled;
@@ -406,6 +410,7 @@ public partial class CustomerModelFactory : ICustomerModelFactory
         model.NickNameEnabled = _customerSettings.NickNameEnabled;
         model.FirstNameEnabled = _customerSettings.FirstNameEnabled;
         model.LastNameEnabled = _customerSettings.LastNameEnabled;
+        model.NickNameRequired = _customerSettings.NickNameRequired;
         model.FirstNameRequired = _customerSettings.FirstNameRequired;
         model.LastNameRequired = _customerSettings.LastNameRequired;
         model.GenderEnabled = _customerSettings.GenderEnabled;

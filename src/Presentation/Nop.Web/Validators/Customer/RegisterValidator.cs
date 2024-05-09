@@ -34,13 +34,17 @@ public partial class RegisterValidator : BaseNopValidator<RegisterModel>
             RuleFor(x => x.Username).IsUsername(customerSettings).WithMessageAwait(localizationService.GetResourceAsync("Account.Fields.Username.NotValid"));
         }
 
+        if (customerSettings.NickNameEnabled && customerSettings.NickNameRequired)
+        {
+            RuleFor(x => x.NickName).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.Fields.NickName.Required"));
+        }
         if (customerSettings.FirstNameEnabled && customerSettings.FirstNameRequired)
         {
-            RuleFor(x => x.LegalFirstName).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.Fields.FirstName.Required"));
+            RuleFor(x => x.LegalFirstName).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.Fields.LegalFirstName.Required"));
         }
         if (customerSettings.LastNameEnabled && customerSettings.LastNameRequired)
         {
-            RuleFor(x => x.LastName).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.Fields.LastName.Required"));
+            RuleFor(x => x.LegalLastName).NotEmpty().WithMessageAwait(localizationService.GetResourceAsync("Account.Fields.LegalLastName.Required"));
         }
 
         //Password rule

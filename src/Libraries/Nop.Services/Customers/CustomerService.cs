@@ -162,7 +162,7 @@ public partial class CustomerService : ICustomerService
     public virtual async Task<IPagedList<Customer>> GetAllCustomersAsync(DateTime? createdFromUtc = null, DateTime? createdToUtc = null,
         DateTime? lastActivityFromUtc = null, DateTime? lastActivityToUtc = null,
         int affiliateId = 0, int vendorId = 0, int[] customerRoleIds = null,
-        string email = null, string username = null, string firstName = null, string lastName = null,
+        string email = null, string username = null, string nickName = null, string firstName = null, string lastName = null,
         int dayOfBirth = 0, int monthOfBirth = 0,
         string company = null, string phone = null, string zipPostalCode = null, string ipAddress = null,
         int pageIndex = 0, int pageSize = int.MaxValue, bool getOnlyTotalCount = false)
@@ -197,6 +197,8 @@ public partial class CustomerService : ICustomerService
                 query = query.Where(c => c.Email.Contains(email));
             if (!string.IsNullOrWhiteSpace(username))
                 query = query.Where(c => c.Username.Contains(username));
+            if (!string.IsNullOrWhiteSpace(nickName))
+                query = query.Where(c => c.NickName.Contains(nickName));
             if (!string.IsNullOrWhiteSpace(firstName))
                 query = query.Where(c => c.FirstName.Contains(firstName));
             if (!string.IsNullOrWhiteSpace(lastName))
