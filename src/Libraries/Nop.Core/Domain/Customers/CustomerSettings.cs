@@ -250,9 +250,18 @@ public partial class CustomerSettings : ISettings
     #region Form fields
 
     /// <summary>
-    /// Gets or sets a value indicating whether 'First Name' is enabled
+    /// Gets or sets a value indicating whether 'Nick Name' is enabled
     /// </summary>
     public bool NickNameEnabled { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether 'Nick Name' is required
+    /// </summary>
+    public bool NickNameRequired { get; set; }
+
+    /// <summary>
+    /// Gets or sets a value indicating whether 'First Name' is enabled
+    /// </summary>
     public bool FirstNameEnabled { get; set; }
 
     /// <summary>

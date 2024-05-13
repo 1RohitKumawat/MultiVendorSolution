@@ -361,11 +361,14 @@ public partial class CustomerController : BasePublicController
             if (oldCustomerInfoModel.Gender != newCustomerInfoModel.Gender)
                 await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ProfileChanged, $"{await _localizationService.GetResourceAsync("Account.Fields.Gender")} = {newCustomerInfoModel.Gender}");
 
-            if (oldCustomerInfoModel.FirstName != newCustomerInfoModel.FirstName)
-                await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ProfileChanged, $"{await _localizationService.GetResourceAsync("Account.Fields.FirstName")} = {newCustomerInfoModel.FirstName}");
+            if (oldCustomerInfoModel.NickName != newCustomerInfoModel.NickName)
+                await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ProfileChanged, $"{await _localizationService.GetResourceAsync("Account.Fields.NickName")} = {newCustomerInfoModel.NickName}");
 
-            if (oldCustomerInfoModel.LastName != newCustomerInfoModel.LastName)
-                await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ProfileChanged, $"{await _localizationService.GetResourceAsync("Account.Fields.LastName")} = {newCustomerInfoModel.LastName}");
+            if (oldCustomerInfoModel.LegalFirstName != newCustomerInfoModel.LegalFirstName)
+                await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ProfileChanged, $"{await _localizationService.GetResourceAsync("Account.Fields.LegalFirstName")} = {newCustomerInfoModel.LegalFirstName}");
+
+            if (oldCustomerInfoModel.LegalLastName != newCustomerInfoModel.LegalLastName)
+                await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ProfileChanged, $"{await _localizationService.GetResourceAsync("Account.Fields.LegalLastName")} = {newCustomerInfoModel.LegalLastName}");
 
             if (oldCustomerInfoModel.ParseDateOfBirth() != newCustomerInfoModel.ParseDateOfBirth())
                 await _gdprService.InsertLogAsync(customer, 0, GdprRequestType.ProfileChanged, $"{await _localizationService.GetResourceAsync("Account.Fields.DateOfBirth")} = {newCustomerInfoModel.ParseDateOfBirth()}");
@@ -853,10 +856,12 @@ public partial class CustomerController : BasePublicController
                 //form fields
                 if (_customerSettings.GenderEnabled)
                     customer.Gender = model.Gender;
+                if (_customerSettings.NickNameEnabled)
+                    customer.NickName = model.NickName;
                 if (_customerSettings.FirstNameEnabled)
                     customer.FirstName = model.LegalFirstName;
                 if (_customerSettings.LastNameEnabled)
-                    customer.LastName = model.LastName;
+                    customer.LastName = model.LegalLastName;
                 if (_customerSettings.DateOfBirthEnabled)
                     customer.DateOfBirth = model.ParseDateOfBirth();
                 if (_customerSettings.CompanyEnabled)
@@ -1255,10 +1260,12 @@ public partial class CustomerController : BasePublicController
                 //form fields
                 if (_customerSettings.GenderEnabled)
                     customer.Gender = model.Gender;
+                if (_customerSettings.NickNameEnabled)
+                    customer.NickName = model.NickName;
                 if (_customerSettings.FirstNameEnabled)
-                    customer.FirstName = model.FirstName;
+                    customer.FirstName = model.LegalFirstName;
                 if (_customerSettings.LastNameEnabled)
-                    customer.LastName = model.LastName;
+                    customer.LastName = model.LegalLastName;
                 if (_customerSettings.DateOfBirthEnabled)
                     customer.DateOfBirth = model.ParseDateOfBirth();
                 if (_customerSettings.CompanyEnabled)

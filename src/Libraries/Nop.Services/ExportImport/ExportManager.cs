@@ -1989,6 +1989,7 @@ public partial class ExportManager : IExportManager
             new PropertyByName<Customer, Language>("IsVendor", async (p, l) => await _customerService.IsVendorAsync(p)),
             new PropertyByName<Customer, Language>("CreatedOnUtc", (p, l) => p.CreatedOnUtc),
             //attributes
+            new PropertyByName<Customer, Language>("NickName", (p, l) => p.NickName, !_customerSettings.NickNameEnabled),
             new PropertyByName<Customer, Language>("FirstName", (p, l) => p.FirstName, !_customerSettings.FirstNameEnabled),
             new PropertyByName<Customer, Language>("LastName", (p, l) => p.LastName, !_customerSettings.LastNameEnabled),
             new PropertyByName<Customer, Language>("Gender", (p, l) => p.Gender, !_customerSettings.GenderEnabled),
@@ -2097,6 +2098,7 @@ public partial class ExportManager : IExportManager
             await xmlWriter.WriteElementStringAsync("CreatedOnUtc", null, customer.CreatedOnUtc.ToString(CultureInfo.InvariantCulture));
 
             await xmlWriter.WriteElementStringAsync("FirstName", null, customer.FirstName);
+            await xmlWriter.WriteElementStringAsync("FirstName", null, customer.NickName);
             await xmlWriter.WriteElementStringAsync("LastName", null, customer.LastName);
             await xmlWriter.WriteElementStringAsync("Gender", null, customer.Gender);
             await xmlWriter.WriteElementStringAsync("Company", null, customer.Company);
@@ -2247,6 +2249,7 @@ public partial class ExportManager : IExportManager
             new PropertyByName<Customer, Language>("Email", (p, l) => p.Email),
             new PropertyByName<Customer, Language>("Username", (p, l) => p.Username, !_customerSettings.UsernamesEnabled), 
             //attributes
+            new PropertyByName<Customer, Language>("Nick name", (p, l) => p.NickName, !_customerSettings.NickNameEnabled),
             new PropertyByName<Customer, Language>("First name", (p, l) => p.FirstName, !_customerSettings.FirstNameEnabled),
             new PropertyByName<Customer, Language>("Last name", (p, l) => p.LastName, !_customerSettings.LastNameEnabled),
             new PropertyByName<Customer, Language>("Gender", (p, l) => p.Gender, !_customerSettings.GenderEnabled),

@@ -68,6 +68,28 @@
             </div>
         </div>
     </nop-nested-setting>
+
+    <div class="form-group row">
+        <div class="col-md-3">
+            <nop-label asp-for="CustomerSettings.NickNameEnabled" />
+        </div>
+        <div class="col-md-9">
+            <nop-editor asp-for="CustomerSettings.NickNameEnabled" />
+            <span asp-validation-for="CustomerSettings.NickNameEnabled"></span>
+        </div>
+    </div>
+    <nop-nested-setting asp-for="CustomerSettings.NickNameEnabled">
+        <div class="form-group row">
+            <div class="col-md-3">
+                <nop-label asp-for="CustomerSettings.NickNameRequired" />
+            </div>
+            <div class="col-md-9">
+                <nop-editor asp-for="CustomerSettings.NickNameRequired" />
+                <span asp-validation-for="CustomerSettings.NickNameRequired"></span>
+            </div>
+        </div>
+    </nop-nested-setting>
+
 	<div class="form-group row">
         <div class="col-md-3">
             <nop-label asp-for="CustomerSettings.FirstNameEnabled" />

@@ -516,6 +516,7 @@ public partial class CustomerModelFactory : ICustomerModelFactory
 
         searchModel.UsernamesEnabled = _customerSettings.UsernamesEnabled;
         searchModel.AvatarEnabled = _customerSettings.AllowCustomersToUploadAvatars;
+        searchModel.NickNameEnabled = _customerSettings.NickNameEnabled;
         searchModel.FirstNameEnabled = _customerSettings.FirstNameEnabled;
         searchModel.LastNameEnabled = _customerSettings.LastNameEnabled;
         searchModel.DateOfBirthEnabled = _customerSettings.DateOfBirthEnabled;
@@ -672,6 +673,7 @@ public partial class CustomerModelFactory : ICustomerModelFactory
                 model.AdminComment = customer.AdminComment;
                 model.IsTaxExempt = customer.IsTaxExempt;
                 model.Active = customer.Active;
+                model.NickName = customer.NickName;
                 model.FirstName = customer.FirstName;
                 model.LastName = customer.LastName;
                 model.Gender = customer.Gender;
@@ -743,6 +745,7 @@ public partial class CustomerModelFactory : ICustomerModelFactory
 
         model.UsernamesEnabled = _customerSettings.UsernamesEnabled;
         model.AllowCustomersToSetTimeZone = _dateTimeSettings.AllowCustomersToSetTimeZone;
+        model.NickNameEnabled = _customerSettings.NickNameEnabled;
         model.FirstNameEnabled = _customerSettings.FirstNameEnabled;
         model.LastNameEnabled = _customerSettings.LastNameEnabled;
         model.GenderEnabled = _customerSettings.GenderEnabled;

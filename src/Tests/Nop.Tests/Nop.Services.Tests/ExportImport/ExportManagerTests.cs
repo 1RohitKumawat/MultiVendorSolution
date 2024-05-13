@@ -259,6 +259,7 @@ public class ExportManagerTests : ServiceTest
 
         var addressFields = new List<string>
         {
+            "NickName",
             "FirstName",
             "LastName",
             "Email",
@@ -345,9 +346,12 @@ public class ExportManagerTests : ServiceTest
             "StateProvinceId", "VatNumberStatusId", "TimeZoneId",
             "CurrencyId", "LanguageId", "TaxDisplayTypeId", "TaxDisplayType", "TaxDisplayType", "VatNumberStatusId" };
 
-        if (!_customerSettings.FirstNameEnabled) 
+        if (!_customerSettings.NickNameEnabled) 
+            ignore.Add("NickName");
+
+        if (!_customerSettings.FirstNameEnabled)
             ignore.Add("FirstName");
-            
+
         if (!_customerSettings.LastNameEnabled)
             ignore.Add("LastName");
 

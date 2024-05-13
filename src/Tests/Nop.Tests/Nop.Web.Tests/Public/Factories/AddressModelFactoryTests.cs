@@ -142,6 +142,7 @@ public class AddressModelFactoryTests : BaseNopTest
             prePopulateWithCustomerFields: true, customer: customer);
 
         model.Email.Should().Be(customer.Email);
+        model.NickName.Should().Be(customer.NickName);
         model.FirstName.Should().Be(customer.FirstName);
         model.LastName.Should().Be(customer.LastName);
 

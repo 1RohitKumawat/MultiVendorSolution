@@ -1824,6 +1824,9 @@ public partial class ImportManager : IImportManager
                         if (DateTime.TryParse(property.StringValue, out var date))
                             customer.CreatedOnUtc = date;
                         break;
+                    case "NickName":
+                        customer.NickName = property.StringValue;
+                        break;
                     case "FirstName":
                         customer.FirstName = property.StringValue;
                         break;

@@ -52,6 +52,42 @@ public class RegisterValidatorTests : BaseNopTest
     }
 
     [Test]
+    public void ShouldHaveErrorWhenNicknameIsNullOrEmpty()
+    {
+        var customerSettings = new CustomerSettings
+        {
+            NickNameEnabled = true,
+            NickNameRequired = true
+        };
+
+        var validator = new RegisterValidator(GetService<ILocalizationService>(), GetService<IStateProvinceService>(), customerSettings);
+        var model = new RegisterModel
+        {
+            NickName = null
+        };
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.NickName);
+        model.NickName = string.Empty;
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.NickName);
+    }
+
+    [Test]
+    public void ShouldNotHaveErrorWhenNicknameIsSpecified()
+    {
+        var customerSettings = new CustomerSettings
+        {
+            NickNameEnabled = true
+        };
+
+        var validator = new RegisterValidator(GetService<ILocalizationService>(), GetService<IStateProvinceService>(), customerSettings);
+
+        var model = new RegisterModel
+        {
+            NickName = "Test"
+        };
+        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.NickName);
+    }
+
+    [Test]
     public void ShouldHaveErrorWhenFirstnameIsNullOrEmpty()
     {
         var customerSettings = new CustomerSettings
@@ -63,11 +99,11 @@ public class RegisterValidatorTests : BaseNopTest
         var validator = new RegisterValidator(GetService<ILocalizationService>(), GetService<IStateProvinceService>(), customerSettings);
         var model = new RegisterModel
         {
-            FirstName = null
+            LegalFirstName = null
         };
-        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.FirstName);
-        model.FirstName = string.Empty;
-        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.FirstName);
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LegalFirstName);
+        model.LegalFirstName = string.Empty;
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LegalFirstName);
     }
 
     [Test]
@@ -82,9 +118,9 @@ public class RegisterValidatorTests : BaseNopTest
 
         var model = new RegisterModel
         {
-            FirstName = "John"
+            LegalFirstName = "John"
         };
-        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.FirstName);
+        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.LegalFirstName);
     }
 
     [Test]
@@ -100,12 +136,12 @@ public class RegisterValidatorTests : BaseNopTest
 
         var model = new RegisterModel
         {
-            LastName = null
+            LegalLastName = null
         };
 
-        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LastName);
-        model.LastName = string.Empty;
-        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LastName);
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LegalLastName);
+        model.LegalLastName = string.Empty;
+        validator.TestValidate(model).ShouldHaveValidationErrorFor(x => x.LegalLastName);
     }
 
     [Test]
@@ -120,9 +156,9 @@ public class RegisterValidatorTests : BaseNopTest
 
         var model = new RegisterModel
         {
-            LastName = "Smith"
+            LegalLastName = "Smith"
         };
-        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.LastName);
+        validator.TestValidate(model).ShouldNotHaveValidationErrorFor(x => x.LegalLastName);
     }
 
     [Test]

@@ -29,6 +29,11 @@ public partial class Customer : BaseEntity, ISoftDeletedEntity
     public string Email { get; set; }
 
     /// <summary>
+    /// Gets or sets the nick name
+    /// </summary>
+    public string NickName { get; set; }
+
+    /// <summary>
     /// Gets or sets the first name
     /// </summary>
     public string FirstName { get; set; }

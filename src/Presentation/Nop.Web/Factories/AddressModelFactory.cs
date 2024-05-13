@@ -206,6 +206,7 @@ public partial class AddressModelFactory : IAddressModelFactory
             if (customer == null)
                 throw new Exception("Customer cannot be null when prepopulating an address");
             model.Email = customer.Email;
+            model.NickName = customer.NickName;
             model.FirstName = customer.FirstName;
             model.LastName = customer.LastName;
             model.Company = customer.Company;

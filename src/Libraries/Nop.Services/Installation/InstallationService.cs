@@ -793,6 +793,7 @@ namespace Nop.Services.Installation
 
             secondUser.BillingAddressId = defaultSecondUserAddress.Id;
             secondUser.ShippingAddressId = defaultSecondUserAddress.Id;
+            secondUser.NickName = defaultSecondUserAddress.NickName;
             secondUser.FirstName = defaultSecondUserAddress.FirstName;
             secondUser.LastName = defaultSecondUserAddress.LastName;
 
@@ -843,6 +844,7 @@ namespace Nop.Services.Installation
 
             thirdUser.BillingAddressId = defaultThirdUserAddress.Id;
             thirdUser.ShippingAddressId = defaultThirdUserAddress.Id;
+            thirdUser.NickName = defaultThirdUserAddress.NickName;
             thirdUser.FirstName = defaultThirdUserAddress.FirstName;
             thirdUser.LastName = defaultThirdUserAddress.LastName;
 
@@ -892,6 +894,7 @@ namespace Nop.Services.Installation
 
             fourthUser.BillingAddressId = defaultFourthUserAddress.Id;
             fourthUser.ShippingAddressId = defaultFourthUserAddress.Id;
+            fourthUser.NickName = defaultFourthUserAddress.NickName;
             fourthUser.FirstName = defaultFourthUserAddress.FirstName;
             fourthUser.LastName = defaultFourthUserAddress.LastName;
 
@@ -942,6 +945,7 @@ namespace Nop.Services.Installation
 
             fifthUser.BillingAddressId = defaultFifthUserAddress.Id;
             fifthUser.ShippingAddressId = defaultFifthUserAddress.Id;
+            fifthUser.NickName = defaultFifthUserAddress.NickName;
             fifthUser.FirstName = defaultFifthUserAddress.FirstName;
             fifthUser.LastName = defaultFifthUserAddress.LastName;
 
@@ -992,6 +996,7 @@ namespace Nop.Services.Installation
 
             sixthUser.BillingAddressId = defaultSixthUserAddress.Id;
             sixthUser.ShippingAddressId = defaultSixthUserAddress.Id;
+            sixthUser.NickName = defaultSixthUserAddress.NickName;
             sixthUser.FirstName = defaultSixthUserAddress.FirstName;
             sixthUser.LastName = defaultSixthUserAddress.LastName;
 
@@ -1097,6 +1102,7 @@ namespace Nop.Services.Installation
 
             adminUser.BillingAddressId = defaultAdminUserAddress.Id;
             adminUser.ShippingAddressId = defaultAdminUserAddress.Id;
+            adminUser.NickName = defaultAdminUserAddress.NickName;
             adminUser.FirstName = defaultAdminUserAddress.FirstName;
             adminUser.LastName = defaultAdminUserAddress.LastName;
 
@@ -2914,6 +2920,7 @@ namespace Nop.Services.Installation
                 HideBackInStockSubscriptionsTab = false,
                 DownloadableProductsValidateUser = false,
                 CustomerNameFormat = CustomerNameFormat.ShowFirstName,
+                NickNameEnabled = true,
                 FirstNameEnabled = true,
                 FirstNameRequired = true,
                 LastNameEnabled = true,
